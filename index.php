@@ -99,19 +99,26 @@ foreach ($hotels as $hotel => $value) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <?php 
-                        foreach ($hotels as $hotel => $value) {
-                            
-                            ?><td><?php echo $value['name']; ?></td><?php
-                            ?><td><?php echo $value['description']; ?></td><?php
-                            
-                        }
-                    ?>
-                    <td>disponibilità parcheggi</td>
-                    <td>numero di stelle</td>
-                    <td>KM</td>
-                </tr>
+                <?php foreach ($hotels as $hotel => $value) { ?>
+                    <tr>
+                        <td><?php echo $value['name']; ?></td>
+                        <td><?php echo $value['description']; ?></td>
+                        <?php 
+                            if ($value['parking'] === true) {
+                                $value['parking'] = 'disponibile';
+                            }else {
+                                $value['parking'] = 'non disponibile';
+                            }
+                        ?>
+                        <td><?php echo $value['parking']; ?></td>
+                        <td> <?php 
+                            for ($i = 0; $i < $value['vote']; $i++) {
+                                echo '&star;';
+                            } ?></p>
+                        </td>
+                        <td><?php echo strval($value['distance_to_center']) ?> Km</td>
+                    </tr>
+                <?php } ?>
                 
             </tbody>                       
     
