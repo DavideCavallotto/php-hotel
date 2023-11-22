@@ -99,27 +99,20 @@ foreach ($hotels as $hotel => $value) {
                 </tr>
             </thead>
             <tbody>
-                    <?php foreach ($hotels as $hotel => $value) {
-                        
-                        ?><th scope="row"><?php $value['name']; ?></th><?php
-
-                    } ?>
                 <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <?php 
+                        foreach ($hotels as $hotel => $value) {
+                            
+                            ?><td><?php echo $value['name']; ?></td><?php
+                            ?><td><?php echo $value['description']; ?></td><?php
+                            
+                        }
+                    ?>
+                    <td>disponibilità parcheggi</td>
+                    <td>numero di stelle</td>
+                    <td>KM</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                
             </tbody>                       
     
         </table>
